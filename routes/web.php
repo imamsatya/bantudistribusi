@@ -18,10 +18,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('/tes', function () {
-    return view('tes');
-});
-Route::resource('tabel', TabelController::class);
+// Route::get('/tes', function () {
+//     return view('tes');
+// });
+Route::resource('', TabelController::class);
 Route::post('x', [TabelController::class, 'import'])->name('x');
 
 Route::get('/temp', [TabelController::class, 'getTemp']);
