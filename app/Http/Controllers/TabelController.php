@@ -6,7 +6,7 @@ use App\Models\Temp;
 use Illuminate\Http\Request;
 use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
-use Response;
+
 class TabelController extends Controller
 {
     /**
@@ -22,10 +22,11 @@ class TabelController extends Controller
 
     public function download()
     {
-    	$file="./download/tes.xlsx";
-        // dd($file);
-        
-        return Response::download($file);
+    	$filePath = public_path("tes.xlsx");
+    	$headers = ['Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
+    	$fileName ='tes.xlsx';
+
+    	return response()->download($filePath, $fileName, $headers);
     }
 
     public function getTemp(){

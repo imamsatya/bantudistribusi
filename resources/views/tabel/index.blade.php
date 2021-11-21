@@ -38,7 +38,7 @@
                                             @change="previewFiles($event)" multiple>
 
                                         <v-card>
-                                        <v-btn depressed color="success" href="/download">
+                                        <v-btn depressed color="success" @click="download()">
                                                 contoh file
                                             </v-btn>
                                             <v-btn depressed color="error" @click="clear()">
@@ -157,7 +157,7 @@
                 async download(){
                     await axios.get('/download').then(response => {
                         console.log(response.data, 'temp')
-                        this.tempData = response.data
+                     
 
                     })
                 },
