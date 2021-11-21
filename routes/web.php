@@ -25,3 +25,4 @@ Route::resource('', TabelController::class);
 Route::post('x', [TabelController::class, 'import'])->name('x');
 
 Route::get('/temp', [TabelController::class, 'getTemp']);
+Route::get('/download', [TabelController::class, 'download']);

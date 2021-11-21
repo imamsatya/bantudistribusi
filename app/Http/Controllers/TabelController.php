@@ -6,7 +6,7 @@ use App\Models\Temp;
 use Illuminate\Http\Request;
 use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
-
+use Response;
 class TabelController extends Controller
 {
     /**
@@ -18,6 +18,14 @@ class TabelController extends Controller
     {
         //
         return view('tabel.index');
+    }
+
+    public function download()
+    {
+    	$file="./download/tes.xlsx";
+        dd($file);
+        
+        return Response::download($file);
     }
 
     public function getTemp(){

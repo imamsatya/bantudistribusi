@@ -38,6 +38,9 @@
                                             @change="previewFiles($event)" multiple>
 
                                         <v-card>
+                                        <v-btn depressed color="success" href="/download">
+                                                contoh file
+                                            </v-btn>
                                             <v-btn depressed color="error" @click="clear()">
                                                 Clear
                                             </v-btn>
@@ -151,6 +154,13 @@
                 }
             },
             methods: {
+                async download(){
+                    await axios.get('/download').then(response => {
+                        console.log(response.data, 'temp')
+                        this.tempData = response.data
+
+                    })
+                },
                 async previewFiles(event) {
 
                     if (!event.target.files.length) return
@@ -178,11 +188,6 @@
                         this.tempData = response.data
 
                     })
-
-
-
-
-
                 },
                 clear() {
                     this.tempData = []
