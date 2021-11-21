@@ -22,11 +22,18 @@ class TabelController extends Controller
 
     public function download()
     {
-    	$filePath = public_path("tes.xlsx");
-    	$headers = ['Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
-    	$fileName ='tes.xlsx';
+    	// $filePath = public_path("tes.xlsx");
+    	// $headers = ['Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
+    	// $fileName ='tes.xlsx';
 
-    	return response()->download($filePath, $fileName, $headers);
+    	// return response()->download($filePath, $fileName, $headers);
+
+        // return Storage::download('tes.xlsx');
+
+        $file = Storage::disk('public')->get('tes.xlsx');
+  
+        return (new Response($file, 200))
+              ->header('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
     }
 
     public function getTemp(){

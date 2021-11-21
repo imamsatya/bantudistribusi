@@ -38,7 +38,7 @@
                                             @change="previewFiles($event)" multiple>
 
                                         <v-card>
-                                        <v-btn depressed color="success" @click="download()">
+                                        <v-btn depressed color="success" onclick=" window.open('https://laci.bps.go.id/s/BCG1F6gdWdrg7WH','_blank')">
                                                 contoh file
                                             </v-btn>
                                             <v-btn depressed color="error" @click="clear()">
