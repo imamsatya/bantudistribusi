@@ -23,7 +23,7 @@ class TabelController extends Controller
     public function download()
     {
     	$file="./download/tes.xlsx";
-        dd($file);
+        // dd($file);
         
         return Response::download($file);
     }
